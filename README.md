@@ -1,6 +1,6 @@
 # Sending email asynchronously using Symfony Messenger and RabbitMQ
 
-The symfony project live in the app directory
+The symfony project lives in the app directory
 Dev stacks needed are in the utils docker dir.
 
 ## Dev stack 
