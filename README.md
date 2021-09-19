@@ -1,30 +1,69 @@
 # Sending email asynchronously using Symfony Messenger and RabbitMQ
 
-The symfony project lives in the app directory
-Dev stacks needed are in the utils docker dir.
+This tutorial is an example of sending email asynchronously using symfony/messenger and RabbitMQ.
 
-## Dev stack 
-> cd utils/docker
-> make build
+In the app directory lives our application source code.
 
-or
+The utils directory Docker's services needed. 
 
-> docker-compose build
+## Requirements
 
-then 
+* [Docker](https://docs.docker.com/engine/install/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
 
-> make up
+## Docker Services
 
-or 
+* Nginx
+* MySQL 8.0
+* PHP 7.4
+* RabbitMQ
+* PHPMyAdmin
+* MailHog
 
-> docker-compose up -d 
+## Installation
 
-## Symfony app
+After cloning the repository.
 
-To run the application after all containers are up and running
+### Step 1 -- .env
+You can change all variables and ports defined in the utils/docker/.env file.
 
-> docker-compose run --rm php bash 
+### Step 2 -- Build
 
-> composer install
+```bash
+cd utils/docker
 
+docker-compose build
+```
+You can use the Makefile to build :
+```bash
+make build
+```
 
+### Step 3 -- Symfony app install
+
+```bash
+docker-compose run --rm php bash
+
+composer install
+```
+
+## Usage
+
+### Start
+```bash
+docker-compose up -d
+
+# same thing here you can use the Makefile
+make up
+```
+
+### Stop
+```bash
+docker-compose down --remove-orphans
+
+# same thing here you can use the Makefile
+make down
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
